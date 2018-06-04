@@ -1,0 +1,12 @@
+from mock_input import increment_input
+from factorial import factorial
+
+
+test mock_external():
+     mock `mock_input.input as Mock(return_value=1)
+     domain : results 2
+     mock `mock_input.input as Mock(return_value=5)
+     domain : results 720
+def:
+     value = increment_input()
+     return factorial(value)
