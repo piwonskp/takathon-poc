@@ -1,0 +1,24 @@
+import sys
+
+test factorial(n):
+     domain -1:
+            throws ValueError('factorial() not defined for negative values')
+     domain 0:
+            results 1
+     domain 1:
+            results 1
+     domain 3: results 6
+     domain 4: results 24
+     domain 5:
+            results 120
+def:
+    if n < 0:
+       raise ValueError('factorial() not defined for negative values')
+
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+
+if __name__ == '__main__':
+    print(factorial(int(sys.argv[1])))

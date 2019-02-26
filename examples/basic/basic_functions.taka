@@ -1,0 +1,10 @@
+
+
+test flatten_negative(x):
+     domain -23: results 0
+     domain 0: results 0
+     domain 67: results 67
+def:
+     if x < 0:
+        return 0
+     return x

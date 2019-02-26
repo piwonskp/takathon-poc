@@ -8,7 +8,7 @@ from lark.lark import Lark
 from lark.indenter import Indenter
 from lark.tree import Visitor
 
-from takathon.ast_structures import ASTTree, TestResults, MockNode, Import, CheckResult
+from takathon.ast_structures import ASTTree, TestResults, MockNode, Import, CheckResult, CheckThrow, execute
 
 
 path = os.path.join(os.path.dirname(__file__), 'takathon.g')
@@ -47,12 +47,19 @@ class ParseTreeToAST(Transformer):
 
     def domain_stmt(self, tokens):
         args = re.match(r'domain (?P<args>.*):', tokens.pop(0)).group('args')
-        expected_result = re.match(r'results (?P<res>.+)', tokens.pop()).group('res')
-
-        tokens.append(CheckResult(args, expected_result, self.test_results))
+        tokens[-1].args = args
 
         tree = transform_mock(tokens)
         return ASTTree('test_scope', tree)
+
+    def fun_call(self, tokens):
+        token = tokens[0]
+        if token.type == 'RESULTS_STMT':
+            expected_result = re.match(r'results (?P<res>.+)', token).group('res')
+            return CheckResult(expected_result, self.test_results)
+        else:
+            expected_exc = re.match(r'throws (?P<exc>.+)', token).group('exc')
+            return CheckThrow(expected_exc, self.test_results)
 
 
 def parse(mod, fun, tests):
@@ -64,6 +71,6 @@ def parse(mod, fun, tests):
     )
 
     tree = parser.parse(tests)
-    tree.execute(mod, fun)
+    execute(tree, mod, fun)
 
     return test_results.passed, test_results.errors

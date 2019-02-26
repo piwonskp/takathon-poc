@@ -1,0 +1,9 @@
+from datetime import datetime
+
+
+test duration(start, stop):
+  import datetime as dt
+  domain datetime(211, 2, 5), datetime(211, 2, 8):
+         results dt.timedelta(days=3)
+def:
+  return stop - start

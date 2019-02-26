@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: takathon
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - prepare
+  prepare:
+    build: .
+    image: takathon
+    volumes:
+      - .:/usr/src/app
+    command: chmod +x /usr/src/app/cli.py
+

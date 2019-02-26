@@ -2,7 +2,7 @@
 test increment_input():
      from unittest.mock import MagicMock
      domain :
-            mock input as MagicMock(return_value=3)
+            mock input as MagicMock(return_value='3')
             results 4
 def:
-     return input() + 1
+     return int(input()) + 1

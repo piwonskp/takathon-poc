@@ -1,5 +1,5 @@
+from basic.factorial import factorial
 from mock_input import increment_input
-from factorial import factorial
 
 
 test mock_external():
