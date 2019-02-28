@@ -6,7 +6,7 @@ from functools import reduce
 from lark import Transformer, Tree
 from lark.lark import Lark
 from lark.indenter import Indenter
-from lark.tree import Visitor
+from lark import Visitor
 
 from takathon.ast_structures import ASTTree, TestResults, MockNode, Import, CheckResult, CheckThrow, execute
 
