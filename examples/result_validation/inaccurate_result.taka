@@ -1,0 +1,9 @@
+
+
+test square_derivative(x):
+    domain 10:
+        result between (19.9, 20.1)
+def:
+    eps = 0.01
+    f = lambda x: x * x
+    return (f(x + eps) - f(x)) / eps

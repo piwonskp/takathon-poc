@@ -1,0 +1,7 @@
+
+test check_by_function():
+     from result_validation.check_by_function.test_utils import got_name
+     domain :
+            result got_name
+def:
+    return {'name': 'example', 'value': 1}
