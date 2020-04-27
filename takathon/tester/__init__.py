@@ -3,9 +3,9 @@ import os, sys
 from glob import iglob
 from importlib import import_module
 
-from takathon.lib.path_finder import TestModuleFinder
-from takathon.lib.path_name_resolver import get_module_name
-from takathon.lib.splitter import get_code_and_tests
+from takathon.importlib.path_finder import TestModuleFinder
+from takathon.importlib.path_name_resolver import get_module_name
+from takathon.importlib.splitter import get_code_and_tests
 from takathon.tester.parser import parse
 
 

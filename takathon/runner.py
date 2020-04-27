@@ -1,7 +1,7 @@
 import sys
 
-from takathon.lib.path_finder import TestModuleFinder
-from takathon.lib.splitter import get_code
+from takathon.importlib.path_finder import TestModuleFinder
+from takathon.importlib.splitter import get_code
 
 
 def run_file(file, argv):

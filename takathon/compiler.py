@@ -1,6 +1,6 @@
 import os
 
-from takathon.lib.splitter import get_code
+from takathon.importlib.splitter import get_code
 
 
 def build_directory_structure(destination, path):
